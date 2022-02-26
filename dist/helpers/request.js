@@ -7,6 +7,9 @@ const curl = (site) => new Promise((resolve) => {
     const url = environment_1.replaceEnvironmentVariables(site.url);
     const method = site.method || "GET";
     const maxRedirects = Number.isInteger(site.maxRedirects) ? Number(site.maxRedirects) : 3;
+    console.log('site', site);
+    console.log('FOLLOWLOCATION', maxRedirects ? 1 : 0);
+    console.log('MAXREDIRS', maxRedirects);
     const curl = new node_libcurl_1.Curl();
     curl.enable(node_libcurl_1.CurlFeature.Raw);
     curl.setOpt("URL", url);
