@@ -9,6 +9,9 @@ export const curl = (
     const url = replaceEnvironmentVariables(site.url);
     const method = site.method || "GET";
     const maxRedirects = Number.isInteger(site.maxRedirects) ? Number(site.maxRedirects) : 3;
+    console.log('site', site);
+    console.log('FOLLOWLOCATION', maxRedirects ? 1 : 0);
+    console.log('MAXREDIRS', maxRedirects);
     const curl = new Curl();
     curl.enable(CurlFeature.Raw);
     curl.setOpt("URL", url);
